@@ -20,7 +20,8 @@
             --primary-teal: #02A5A4;  
             --accent-orange: #F7691F; 
             --light-orange: #FF9E67;  
-            --glass: rgba(255, 255, 255, 0.75);
+            /* تعديل: جعل الخلفية بيضاء فخمة وغير شفافة (ثقيلة) */
+            --glass: rgba(255, 255, 255, 0.95);
         }
 
         * {
@@ -170,13 +171,18 @@
         .slogan {
             text-align: center;
             margin-top: 35px;
-            font-size: 13px;
+            /* تعديل: تكبير النص وجعله أكثر عصرية وبروزاً */
+            font-size: 14.5px;
             font-weight: 800;
             background: linear-gradient(90deg, var(--accent-orange), var(--light-orange), var(--accent-orange));
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: shineGradient 3s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
 
         @keyframes shineGradient {
@@ -222,13 +228,13 @@
 
         <div class="destinations-grid">
             <div class="dest-card dest-1"><span>فخامة دبي</span></div>
-            <div class="dest-card dest-2"><span>جمال باريس</span></div>
-            <div class="dest-card dest-3"><span>أصالة الإمارات</span></div>
-            <div class="dest-card dest-4"><span>تراث مصر</span></div>
+            <div class="dest-card dest-1"><span>جمال باريس</span></div>
+            <div class="dest-card dest-1"><span>أصالة الإمارات</span></div>
+            <div class="dest-card dest-1"><span>تراث مصر</span></div>
         </div>
 
         <div class="slogan">
-            (نوصلك.. لأن كل خطوة محسوبة وكل راحة لك)
+            نوصلك.. لأن كل خطوة محسوبة وكل راحة لك ✈️ ➔
         </div>
     </div>
 
