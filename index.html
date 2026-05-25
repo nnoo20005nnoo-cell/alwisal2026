@@ -20,7 +20,6 @@
             --primary-teal: #02A5A4;  
             --accent-orange: #F7691F; 
             --light-orange: #FF9E67;  
-            /* تعديل: جعل الخلفية بيضاء فخمة وغير شفافة (ثقيلة) */
             --glass: rgba(255, 255, 255, 0.95);
         }
 
@@ -32,7 +31,6 @@
         }
 
         body {
-            /* تعديل: الخلفية باللون التركوازي الثابت بالكامل بدون تدرج */
             background-color: var(--primary-teal);
             min-height: 100vh;
             display: flex;
@@ -53,142 +51,81 @@
             padding: 40px 30px;
             position: relative;
             overflow: hidden;
+            /* إضافة أنيميشن ظهور هادئ للبطاقة */
+            animation: fadeIn 0.8s ease-out;
         }
 
-        .header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .header { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-bottom: 30px; text-align: center; }
 
         .logo-box {
-            width: 85px;
-            height: 85px;
-            background: #fff;
-            border-radius: 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 15px 30px rgba(2, 165, 164, 0.1);
-            border: 1px solid rgba(2, 165, 164, 0.05);
+            width: 85px; height: 85px; background: #fff; border-radius: 24px;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 15px 30px rgba(2, 165, 164, 0.1); border: 1px solid rgba(2, 165, 164, 0.05);
+            /* أنيميشن نبض خفيف للوجو */
+            animation: pulse 3s infinite ease-in-out;
         }
+
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
         .logo-box img { width: 75%; height: auto; }
 
-        /* تمييز كلمة الوصال بالبرتقالي */
         .brand-intro h2 { font-size: 22px; color: var(--primary-teal); font-weight: 900; }
         .brand-intro h2 span { color: var(--accent-orange); }
         .brand-intro p { font-size: 10px; color: #b0b0b0; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
 
         .info-box {
             background: linear-gradient(135deg, rgba(2, 165, 164, 0.05), rgba(247, 105, 31, 0.02));
-            padding: 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            color: #444;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            text-align: center;
-            font-weight: 500;
+            padding: 20px; border-radius: 25px; font-size: 14px; color: #444; line-height: 1.8;
+            margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.5); text-align: center; font-weight: 500;
         }
 
         .links-container { display: flex; flex-direction: column; gap: 12px; }
 
         .btn-link {
-            background: #ffffff;
-            padding: 18px 25px;
-            border-radius: 22px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0,0,0,0.03);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            background: #ffffff; padding: 18px 25px; border-radius: 22px; text-decoration: none;
+            display: flex; align-items: center; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0,0,0,0.03); box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
 
-        .btn-link:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 30px rgba(247, 105, 31, 0.12);
-            border-color: var(--light-orange);
-        }
+        .btn-link:hover { transform: scale(1.02); box-shadow: 0 15px 30px rgba(247, 105, 31, 0.12); border-color: var(--light-orange); }
 
-        .btn-link i { 
-            font-size: 26px; 
-            margin-left: 18px; 
-            color: var(--accent-orange); 
-        }
-
+        .btn-link i { font-size: 26px; margin-left: 18px; color: var(--accent-orange); }
         .btn-link span { font-size: 15px; font-weight: 700; color: #333; flex: 1; }
 
-        .destinations-grid {
-            margin-top: 35px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
+        .destinations-grid { margin-top: 35px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 
         .dest-card {
-            height: 100px;
-            border-radius: 25px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: flex-end;
-            padding: 12px;
-            border: 1.5px solid #fff;
-            transition: 0.3s;
+            height: 100px; border-radius: 25px; background-size: cover; background-position: center;
+            position: relative; overflow: hidden; display: flex; align-items: flex-end;
+            padding: 12px; border: 1.5px solid #fff; transition: all 0.5s ease;
         }
 
-        .dest-card:hover { transform: translateY(-5px); }
+        /* تأثير الأنيميشن عند التحويم (Hover) */
+        .dest-card:hover { transform: scale(1.05) rotate(1deg); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
         .dest-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.6) 100%);
         }
 
-        .dest-card span {
-            position: relative;
-            color: white;
-            font-size: 11px;
-            font-weight: 700;
-            z-index: 1;
-        }
+        .dest-card span { position: relative; color: white; font-size: 11px; font-weight: 700; z-index: 1; }
 
-        /* صور الوجهات المطلوبة */
-        .dest-1 { background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=400'); } /* دبي */
-        .dest-2 { background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=400'); } /* باريس */
-        .dest-3 { background-image: url('https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=400'); } /* الإمارات */
-        .dest-4 { background-image: url('https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=400'); } /* مصر */
+        /* صور الوجهات المختلفة */
+        .dest-1 { background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=400'); }
+        .dest-2 { background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=400'); }
+        .dest-3 { background-image: url('https://images.unsplash.com/photo-1628172940251-54c30c3453b3?q=80&w=400'); }
+        .dest-4 { background-image: url('https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=400'); }
 
         .slogan {
-            text-align: center;
-            margin-top: 35px;
-            /* تعديل: تكبير النص وجعله أكثر عصرية وبروزاً */
-            font-size: 14.5px;
-            font-weight: 800;
+            text-align: center; margin-top: 35px; font-size: 14.5px; font-weight: 800;
             background: linear-gradient(90deg, var(--accent-orange), var(--light-orange), var(--accent-orange));
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shineGradient 3s linear infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
+            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: shineGradient 3s linear infinite; display: flex; align-items: center; justify-content: center; gap: 6px;
         }
 
-        @keyframes shineGradient {
-            to { background-position: 200% center; }
-        }
-
+        @keyframes shineGradient { to { background-position: 200% center; } }
     </style>
 </head>
 <body>
@@ -228,9 +165,9 @@
 
         <div class="destinations-grid">
             <div class="dest-card dest-1"><span>فخامة دبي</span></div>
-            <div class="dest-card dest-1"><span>جمال باريس</span></div>
-            <div class="dest-card dest-1"><span>أصالة الإمارات</span></div>
-            <div class="dest-card dest-1"><span>تراث مصر</span></div>
+            <div class="dest-card dest-2"><span>جمال باريس</span></div>
+            <div class="dest-card dest-3"><span>أصالة الإمارات</span></div>
+            <div class="dest-card dest-4"><span>تراث مصر</span></div>
         </div>
 
         <div class="slogan">
